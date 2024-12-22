@@ -44,4 +44,17 @@ public class TaskService {
     public void deleteTask(Long id) {
         taskRepository.deleteById(id);
     }
+
+    public List<Task> getTasksByStatus(String status) {
+        return taskRepository.findAllByStatus(status);
+    }
+
+    public List<Task> getTasksByPriority(String priority) {
+        return taskRepository.findAllByPriority(priority);
+    }
+
+    public List<Task> getTasksByTitle(String keyword) {
+        return taskRepository.findAllByTitle(keyword);
+    }
+
 }
