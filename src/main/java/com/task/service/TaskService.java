@@ -56,5 +56,12 @@ public class TaskService {
     public List<Task> getTasksByTitle(String keyword) {
         return taskRepository.findAllByTitle(keyword);
     }
-
+    public List<Task> getTasksByStatusOrPriority(String status, String priority) {
+        if(status.equalsIgnoreCase("completed")) {
+            return taskRepository.findAllByStatus(status);
+        }
+        else{
+            return taskRepository.findAllByPriority(priority);
+        }
+    }
 }
