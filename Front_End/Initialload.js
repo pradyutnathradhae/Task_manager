@@ -1,12 +1,17 @@
 async function fetchTasks() {
     const response = await fetch('http://localhost:8080/api/tasks');
     const tasks = await response.json();
-    document.getElementById('tasks').innerHTML = tasks.map(task => `
-                <li>
-                    <strong>${task.title}</strong> - ${task.status}
-                    <p>${task.description}</p>
-                </li>
-            `).join('');
+    document.getElementById('tasks').innerHTML = tasks
+        .filter(task => task.status.toLowerCase() !== 'completed')
+        .sort((a, b) => a.priority - b.priority)  // Sort by priority (adjust based on your data type)
+        .slice(0, 3)  // Take only the first 3 tasks after sorting
+        .map(task => `
+        <li class="task-item">
+            <strong>${task.title}</strong> - <span class="task-status">${task.status}</span>
+            <p>${task.description}</p>
+        </li>
+    `)
+        .join('');
 }
 
 async function addTask() {
