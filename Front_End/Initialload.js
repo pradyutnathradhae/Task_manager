@@ -1,5 +1,9 @@
 async function fetchTasks() {
-    const response = await fetch('http://localhost:8080/api/tasks');
+    const response = await fetch('http://localhost:8080/api/tasks',{
+        method: 'GET',
+        headers: {'Content-Type': 'application/json'}
+        }
+    );
     const tasks = await response.json();
     document.getElementById('tasks').innerHTML = tasks
         .filter(task => task.status.toLowerCase() !== 'completed')
