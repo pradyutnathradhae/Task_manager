@@ -1,31 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Task Manager</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="styles.css"/>
-        <script src = "Initialload.js">
-        </script>
-    </head>
-    <body>
-
-    <div class="container">
-    <h1>Task Manager</h1>
-    <h2 class = 'sparkle-text'>Important Pending Tasks:</h2>
-    <ul id="tasks"></ul>
-
-    <h2>Add Task</h2>
-    <form onsubmit="event.preventDefault(); addTask();">
-        <input type="text" id="title" placeholder="Task Title" required><br>
-        <textarea id="description" placeholder="Task Description" required></textarea><br>
-        <textarea id="priority" placeholder="Task Priority" required></textarea><br>
-        <select id="status" required>
-            <option value="To Do">To Do</option>
-            <option value="In Progress">In Progress</option>
-            <option value="Completed">Completed</option>
-        </select><br>
-        <button type="submit">Add Task</button>
-    </form>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+<header class="header">
+    <h1><i class="fas fa-tasks"></i> Task Manager</h1>
+</header>
+<main class="dashboard">
+    <div class="card" onclick="navigateTo('create.html')">
+        <div class="icon-container">
+            <i class="fas fa-plus-circle"></i>
+        </div>
+        <p>Create Task</p>
     </div>
-    </body>
+    <div class="card" onclick="navigateTo('update.html')">
+        <div class="icon-container">
+            <i class="fas fa-edit"></i>
+        </div>
+        <p>Update Task</p>
+    </div>
+    <div class="card" onclick="navigateTo('delete.html')">
+        <div class="icon-container">
+            <i class="fas fa-trash-alt"></i>
+        </div>
+        <p>Delete Task</p>
+    </div>
+    <div class="card" onclick="navigateTo('get-all.html')">
+        <div class="icon-container">
+            <i class="fas fa-list"></i>
+        </div>
+        <p>Get All Tasks</p>
+    </div>
+    <div class="card" onclick="navigateTo('priority.html')">
+        <div class="icon-container">
+            <i class="fas fa-exclamation-circle"></i>
+        </div>
+        <p>Tasks by Priority</p>
+    </div>
+    <div class="card" onclick="navigateTo('status.html')">
+        <div class="icon-container">
+            <i class="fas fa-filter"></i>
+        </div>
+        <p>Tasks by Status</p>
+    </div>
+    <div class="card" onclick="navigateTo('get-by-id.html')">
+        <div class="icon-container">
+            <i class="fas fa-filter"></i>
+        </div>
+        <p>Task by ID</p>
+    </div>
+    <div class="card" onclick="navigateTo('visualize.html')">
+        <div class="icon-container">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <p>Visualize Task</p>
+    </div>
+    <div class="card" onclick="navigateTo('download.html')">
+        <div class="icon-container">
+            <i class="fa-solid fa-download"></i>
+        </div>
+        <p>Download All Tasks</p>
+    </div>
+    <div class="card" onclick="navigateTo('about.html')">
+        <div class="icon-container">
+            <i class="fa-solid fa-share"></i>
+        </div>
+        <p>About Me</p>
+    </div>
+</main>
+<footer class="footer">
+    <p>&copy; 2024 Task Manager App. All Rights Reserved.</p>
+</footer>
+<script src="script.js"></script>
+</body>
 </html>

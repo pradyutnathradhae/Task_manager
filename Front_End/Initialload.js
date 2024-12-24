@@ -17,8 +17,36 @@ async function fetchTasks() {
     `)
         .join('');
 }
+// Helper function to display a browser notification
+function displayNotification(message, type) {
+    const notificationOptions = {
+        body: message,
+        icon: type === 'success' ? 'resources/success-icon.png' : 'resources/error-icon.png', // Replace with actual icon paths
+    };
+    new Notification('Task Manager Notification', notificationOptions);
+}
+// Function to show a notification
+function showNotification(message, type) {
+    // Check if notifications are supported
+    if (!("Notification" in window)) {
+        alert(message);
+        return;
+    }
+
+    // Request permission if not already granted
+    if (Notification.permission !== "granted") {
+        Notification.requestPermission().then(permission => {
+            if (permission === "granted") {
+                displayNotification(message, type);
+            }
+        });
+    } else {
+        displayNotification(message, type);
+    }
+}
 
 async function addTask() {
+    const form = document.getElementById('form');
     const title = document.getElementById('title').value;
     const description = document.getElementById('description').value;
     const status = document.getElementById('status').value;
@@ -32,6 +60,9 @@ async function addTask() {
         body: JSON.stringify(task)
     });
 
-    fetchTasks(); // Refresh the task list
+    showNotification('Task successfully created!', 'success');
+
+    // Reset the form fields
+    form.reset();
+
 }
-document.addEventListener('DOMContentLoaded', fetchTasks);
