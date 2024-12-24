@@ -2,9 +2,8 @@
 <html lang="en">
     <head>
         <title>Task Manager</title>
-        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src = "Front_End/Initialload.js">
+        <script src = "Initialload.js">
 
         </script>
     </head>
@@ -16,10 +15,11 @@
     <form onsubmit="event.preventDefault(); addTask();">
         <input type="text" id="title" placeholder="Title" required><br>
         <textarea id="description" placeholder="Description"></textarea><br>
+        <textarea id="priority" placeholder="Priority" fo></textarea><br>
         <select id="status">
             <option value="To Do">To Do</option>
             <option value="In Progress">In Progress</option>
-            <option value="Done">Done</option>
+            <option value="Completed">Completed</option>
         </select><br>
         <button type="submit">Add Task</button>
     </form>

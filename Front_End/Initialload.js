@@ -13,9 +13,8 @@ async function addTask() {
     const title = document.getElementById('title').value;
     const description = document.getElementById('description').value;
     const status = document.getElementById('status').value;
-
-    const task = { title, description, status };
-
+    const priority = Number(document.getElementById('priority').value);
+    const task = { title, description, status,priority };
     await fetch('http://localhost:8080/api/tasks', {
         method: 'POST',
         headers: {
