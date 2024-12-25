@@ -49,19 +49,14 @@ public class TaskService {
         return taskRepository.findAllByStatus(status);
     }
 
-    public List<Task> getTasksByPriority(String priority) {
+    public List<Task> getTasksByPriority(Integer priority) {
         return taskRepository.findAllByPriority(priority);
     }
 
     public List<Task> getTasksByTitle(String keyword) {
         return taskRepository.findAllByTitle(keyword.toLowerCase());
     }
-    public List<Task> getTasksByStatusOrPriority(String status, String priority) {
-        if(status.equalsIgnoreCase("completed")) {
-            return taskRepository.findAllByStatus(status);
-        }
-        else{
-            return taskRepository.findAllByPriority(priority);
-        }
+    public List<Task> getTasksByStatusAndPriority(String status, Integer priority) {
+        return taskRepository.findAllByStatusAndPriority(status,priority);
     }
 }

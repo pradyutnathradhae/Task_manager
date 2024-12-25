@@ -25,8 +25,12 @@ public class TaskController {
     }
 
     @GetMapping("/priority/{priority}")
-    public List<Task> getAllByPriority(@PathVariable String priority) {
+    public List<Task> getAllByPriority(@PathVariable Integer priority) {
         return taskService.getTasksByPriority(priority);
+    }
+    @GetMapping("/status/{status}/priority/{priority}")
+    public List<Task> getAllByStatusAndPriority(@PathVariable String status,@PathVariable Integer priority) {
+        return taskService.getTasksByStatusAndPriority(status,priority);
     }
 
     @PostMapping

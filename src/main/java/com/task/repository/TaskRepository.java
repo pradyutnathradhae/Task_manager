@@ -17,8 +17,11 @@ public interface TaskRepository extends JpaRepository<Task,Long> {
     List<Task> findAllByStatus(@Param("status") String status);
 
     @Query("select t from Task t where t.priority = :priority")
-    List<Task> findAllByPriority(@Param("priority") String priority);
+    List<Task> findAllByPriority(@Param("priority") Integer priority);
 
     @Query("select t from Task t where lower(t.title) LIKE %:keyword%")
     List<Task> findAllByTitle(@Param("keyword") String keyword);
+
+    @Query("select t from Task t where t.status = :status and t.priority = :priority")
+    List<Task> findAllByStatusAndPriority(@Param("status") String status,@Param("priority") Integer priority);
 }
