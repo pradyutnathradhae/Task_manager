@@ -21,7 +21,7 @@ async function fetchTasks() {
 function displayNotification(message, type) {
     const notificationOptions = {
         body: message,
-        icon: type === 'success' ? 'resources/success-icon.png' : 'resources/error-icon.png', // Replace with actual icon paths
+        icon: type === 'success' ? '../resources/success-icon.png' : '../resources/error-icon.png', // Replace with actual icon paths
     };
     new Notification('Task Manager Notification', notificationOptions);
 }
