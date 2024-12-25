@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Analyze A Task</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles_bkp.css"/>
+    <script src = "../Js/create_upd_Initialload.js"></script>
+</head>
+<body>
+<div class="container1">
+    <h2>Search Task Detail</h2>
+    <form id = "form0" onsubmit="event.preventDefault(); findTaskByTitle();">
+        <input type="text" id="titlesearch" placeholder="Task Keyword" required><br>
+        <button type="submit">Search</button>
+    </form>
+    <br>
+    <ul id="tasks"></ul>
+</div>
+<div class="container1">
+    <h2>Analyze Task By ID</h2>
+    <form id = "form1" onsubmit="event.preventDefault(); findTaskById();">
+        <input type="text" id="idsearch" placeholder="ID of Task to Find" required><br>
+        <button type="submit">Submit</button>
+    </form>
+    <br>
+    <ul id="filteredtask"></ul>
+</div>
+</body>
+</html>

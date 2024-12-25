@@ -45,6 +45,37 @@ function showNotification(message, type) {
     }
 }
 
+async function findTaskById(){
+    const form = document.getElementById('form1');
+    const id = form.elements[0].value;
+    try{
+        const response = await fetch('http://localhost:8080/api/tasks/'+encodeURIComponent(id), {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        const task = await response.json();
+        if (task.title !== undefined) {
+            document.getElementById("filteredtask").innerHTML = `
+            <li class="task-item">
+                <p></p><strong>Task Title : </strong>${task.title} </p>
+                <p><span><strong>Task Status : </strong>${task.status}</span> </p>
+                <p><span><strong>Task Priority : </strong>${task.priority}</span></p>
+                <p><strong>Task Description : </strong>
+                ${task.description}</p>
+            </li>
+        `;
+        } else {
+            throw "Task Not Found";
+        }
+    }
+    catch(error){
+        showNotification('Error Check ID and connection! ', 'error');
+    }
+    // Reset the form fields
+    form.reset();
+}
 async function addTask() {
     const form = document.getElementById('form0');
     const title = document.getElementById('title').value;
