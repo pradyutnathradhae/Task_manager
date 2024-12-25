@@ -46,7 +46,7 @@ function showNotification(message, type) {
 }
 
 async function addTask() {
-    const form = document.getElementById('form');
+    const form = document.getElementById('form0');
     const title = document.getElementById('title').value;
     const description = document.getElementById('description').value;
     const status = document.getElementById('status').value;
@@ -64,5 +64,46 @@ async function addTask() {
 
     // Reset the form fields
     form.reset();
+}
 
+async function findTaskByTitle() {
+    const form = document.getElementById('form0');
+    const titlesearch = form.elements[0].value;
+    const response = await fetch('http://localhost:8080/api/tasks/title/'+encodeURIComponent(titlesearch),{
+            method: 'GET',
+            headers: {'Content-Type': 'application/json'}
+        }
+    );
+    const tasks = await response.json();
+    document.getElementById('tasks').innerHTML = tasks
+        .sort((a, b) => a.priority - b.priority)  // Sort by priority (adjust based on your data type)
+        .map(task => `
+        <li class="task-item">
+            <strong>${task.title}</strong> - <span class="task-status">${task.status}</span>
+            <p>Unique ID : ${task.id}</p>
+        </li>
+    `)
+        .join('');
+}
+
+async function updateTask() {
+    const form = document.getElementById('form1');
+    const id = form.elements[0].value;
+    const title = form.elements[1].value;
+    const description = form.elements[2].value;
+    const status = form.elements[4].value;
+    const priority = Number(form.elements[3].value);
+    const task = { title, description, status,priority };
+    await fetch('http://localhost:8080/api/tasks/'+encodeURIComponent(id), {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(task)
+    });
+
+    showNotification('Task successfully Updated!', 'success');
+
+    // Reset the form fields
+    form.reset();
 }

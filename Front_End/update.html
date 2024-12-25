@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Update A Task</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles_bkp.css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src = "Js/create_upd_Initialload.js"></script>
+    <style>
+        #info1:hover::after{
+            content: "This is Task Title Field.Update it incase you want to change else keep this blank.";
+            font-family: "Times New Roman", Times, serif;
+            left: 120%;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #fff;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            font-size: 12px;
+            white-space: nowrap;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+        #info2:hover::after{
+            content: "This is Task Description Field.Update it incase you want to change else keep this blank.";
+            font-family: "Times New Roman", Times, serif;
+            left: 120%;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #fff;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            font-size: 12px;
+            white-space: nowrap;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+        #info3:hover::after{
+            content: "This is Task Priority Field.In case you don't want to change, keep priority as 0 or less than 0";
+            font-family: "Times New Roman", Times, serif;
+            left: 120%;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #fff;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            font-size: 12px;
+            white-space: nowrap;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+        #info4:hover::after{
+            content: "This is Task Status Field.In case you don't want to change, keep status 'No Change'.";
+            font-family: "Times New Roman", Times, serif;
+            left: 120%;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #fff;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            font-size: 12px;
+            white-space: nowrap;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container1">
+    <h2>Search Task Detail</h2>
+    <form id = "form0" onsubmit="event.preventDefault(); findTaskByTitle();">
+        <input type="text" id="titlesearch" placeholder="Task Keyword" required><br>
+        <button type="submit">Search</button>
+    </form>
+    <br>
+
+    <ul id="tasks"></ul>
+</div>
+<div class="container">
+    <h2>Update Task Detail</h2>
+    <form id = "form1" onsubmit="event.preventDefault(); updateTask();">
+        <input type="text" id="idsearch" placeholder="ID of Task to Update" required><br>
+        <input type="text" id="title" placeholder="Task Title">
+        <i class="fas fa-info-circle" id="info1"></i><br>
+        <textarea id="description" placeholder="Task Description"></textarea>
+        <i class="fas fa-info-circle" id="info2"></i><br>
+        <input type="number" id="priority" placeholder="Task Priority" required>
+        <i class="fas fa-info-circle" id="info3"></i><br>
+        <select id="status" required>
+            <option value="To Do">To Do</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+            <option value="No Change">No Change</option>
+        </select>
+        <i class="fas fa-info-circle" id="info4"></i><br>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+</body>
+</html>

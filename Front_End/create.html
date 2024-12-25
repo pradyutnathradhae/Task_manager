@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Task Manager</title>
+    <title>Create A Task</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles_bkp.css"/>
-    <script src = "Initialload.js">
+    <link rel="stylesheet" href="css/styles_bkp.css"/>
+    <script src = "Js/create_upd_Initialload.js">
     </script>
 </head>
 <body>
 
 <div class="container">
     <h2>Add Task</h2>
-    <form id = "form" onsubmit="event.preventDefault(); addTask();">
+    <form id = "form0" onsubmit="event.preventDefault(); addTask();">
         <input type="text" id="title" placeholder="Task Title" required><br>
         <textarea id="description" placeholder="Task Description" required></textarea><br>
-        <textarea id="priority" placeholder="Task Priority" required></textarea><br>
+        <input type="number" id="priority" placeholder="Task Priority" required><br>
         <select id="status" required>
             <option value="To Do">To Do</option>
             <option value="In Progress">In Progress</option>
