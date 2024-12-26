@@ -25,8 +25,12 @@ public class TaskController {
     }
 
     @GetMapping("/priority/{priority}")
-    public List<Task> getAllByPriority(@PathVariable String priority) {
+    public List<Task> getAllByPriority(@PathVariable Integer priority) {
         return taskService.getTasksByPriority(priority);
+    }
+    @GetMapping("/status/{status}/priority/{priority}")
+    public List<Task> getAllByStatusAndPriority(@PathVariable String status,@PathVariable Integer priority) {
+        return taskService.getTasksByStatusAndPriority(status,priority);
     }
 
     @PostMapping
@@ -38,13 +42,18 @@ public class TaskController {
     public Task getTaskById(@PathVariable Long id) {
         return taskService.getTaskById(id).orElseThrow(() -> new RuntimeException("Task Not Found"));
     }
+    @GetMapping("/title/{keyword}")
+    public List<Task> getTaskByTitle(@PathVariable String keyword) {
+        return taskService.getTasksByTitle(keyword);
+    }
 
-    @PutMapping("/{id}/")
+
+    @PutMapping("/{id}")
     public Task updateTask(@PathVariable Long id, @RequestBody Task task) {
         return taskService.updateTask(id, task);
     }
 
-    @DeleteMapping("/{id}/")
+    @DeleteMapping("/{id}")
     public void deleteTask(@PathVariable Long id) {
         taskService.deleteTask(id);
     }

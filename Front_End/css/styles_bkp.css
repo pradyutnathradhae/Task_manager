@@ -10,15 +10,23 @@ body {
     height: 100vh;
     color: #333;
 }
-
-/* Main Container */
-.container {
+.container1 {
     height:100%;
     background-color: white;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+/* Main Container */
+.container {
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+    width: 50%;
     max-width: 600px;
     text-align: center;
 }

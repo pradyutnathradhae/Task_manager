@@ -33,10 +33,10 @@ public class TaskService {
     public Task updateTask(Long id,Task upd_task) {
         return taskRepository.findById(id).map(
                 task -> {
-                    task.setTitle(upd_task.getTitle());
-                    task.setDescription(upd_task.getDescription());
-                    task.setPriority(upd_task.getPriority());
-                    task.setStatus(upd_task.getStatus());
+                    task.setTitle(upd_task.getTitle().isEmpty() ? task.getTitle(): upd_task.getTitle());
+                    task.setDescription(upd_task.getDescription().isEmpty() ? task.getDescription() : upd_task.getDescription());
+                    task.setPriority(upd_task.getPriority() <= 0 ? task.getPriority(): upd_task.getPriority());
+                    task.setStatus(upd_task.getStatus().equals("No Change") ? task.getStatus():upd_task.getStatus());
                     return taskRepository.save(task);
                 }).orElseThrow(() -> new RuntimeException("Task not found"));
     }
@@ -49,19 +49,14 @@ public class TaskService {
         return taskRepository.findAllByStatus(status);
     }
 
-    public List<Task> getTasksByPriority(String priority) {
+    public List<Task> getTasksByPriority(Integer priority) {
         return taskRepository.findAllByPriority(priority);
     }
 
     public List<Task> getTasksByTitle(String keyword) {
-        return taskRepository.findAllByTitle(keyword);
+        return taskRepository.findAllByTitle(keyword.toLowerCase());
     }
-    public List<Task> getTasksByStatusOrPriority(String status, String priority) {
-        if(status.equalsIgnoreCase("completed")) {
-            return taskRepository.findAllByStatus(status);
-        }
-        else{
-            return taskRepository.findAllByPriority(priority);
-        }
+    public List<Task> getTasksByStatusAndPriority(String status, Integer priority) {
+        return taskRepository.findAllByStatusAndPriority(status,priority);
     }
 }
