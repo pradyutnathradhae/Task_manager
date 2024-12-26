@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visualize Tasks</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="../css/visualize.css">
+</head>
+<body>
+<header>
+  <h1>Task Dashboard with Charts</h1>
+</header>
+
+<div class="container">
+  <div class="button-container">
+    <button onclick="fetchTasks()">Fetch All Tasks</button>
+  </div>
+
+  <div class="task-group" id="todoGroup">
+    <h2>ToDo</h2>
+    <ul id="todoList"></ul>
+  </div>
+
+  <div class="task-group" id="inProgressGroup">
+    <h2>In Progress</h2>
+    <ul id="inProgressList"></ul>
+  </div>
+
+  <div class="task-group" id="completedGroup">
+    <h2>Completed</h2>
+    <ul id="completedList"></ul>
+  </div>
+
+  <div class="chart-container">
+    <canvas id="barChart"></canvas>
+    <canvas id="pieChart"></canvas>
+  </div>
+
+  <div class="message" id="message"></div>
+</div>
+
+<footer>
+  <p>&copy; 2024 Task Dashboard</p>
+</footer>
+
+<script src = "../Js/visualize.js"></script>
+</body>
+</html>

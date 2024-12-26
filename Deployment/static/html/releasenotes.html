@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager App - Release Notes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #429F3CC2;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 2em;
+            color: #0078d7;
+            margin-bottom: 20px;
+        }
+
+        .version {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #444;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section h3 {
+            font-size: 1.2em;
+            color: #0056b3;
+            margin-bottom: 10px;
+        }
+
+        .list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .list li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .list li::before {
+            content: "\272A"; /* Sparkle Icon */
+            color: #f4c542;
+            font-size: 1.2em;
+            position: absolute;
+            left: 0;
+        }
+
+        .highlight {
+            background: linear-gradient(to right, #f9f871, #ffd700);
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 0.9em;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="title">Task Manager App - Release Notes</div>
+
+    <div class="version">Version 0.0.1 - December 2024</div>
+
+    <div class="section">
+        <h3>✨ New Features</h3>
+        <ul class="list">
+            <li>Added support for recurring tasks to help you stay on track with routine activities.</li>
+            <li>Enhanced search functionality with advanced filters for better task discovery.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>🐛 Major Bug Fixes</h3>
+        <ul class="list">
+            <li><span class="highlight">Fixed an issue where completed tasks were not being saved properly.</span></li>
+            <li><span class="highlight">Resolved a crash that occurred when updating tasks with large descriptions.</span></li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>🔧 Improvements</h3>
+        <ul class="list">
+            <li>Reduced app loading time by optimizing asset handling.</li>
+            <li>Streamlined task editing workflow for faster updates.</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        Thank you for using Task Manager App! Your feedback helps us improve every day. 💡
+    </div>
+</div>
+</body>
+</html>

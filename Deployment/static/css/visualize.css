@@ -1,0 +1,117 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #6200ea;
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.button-container {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.button-container button {
+    background-color: #6200ea;
+    color: white;
+    font-size: 1.1rem;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button-container button:hover {
+    background-color: #3700b3;
+}
+
+.task-group {
+    margin-bottom: 2rem;
+}
+
+.task-group h2 {
+    background-color: #6200ea;
+    color: white;
+    padding: 0.5rem;
+    margin: 0;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.task-group ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.task-group ul li {
+    background-color: #fff;
+    padding: 12px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1.1rem;
+}
+
+.task-group ul li.completed {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.task-group ul li.in-progress {
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+}
+
+.task-group ul li.todo {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.message {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    color: green;
+    text-align: center;
+}
+
+.chart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+canvas {
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+    border-radius: 8px;
+}
+
+footer {
+    background-color: #6200ea;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    margin-top: 2rem;
+}
