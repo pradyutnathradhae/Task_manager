@@ -6,17 +6,7 @@
     <title>Task Manager</title>
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <script>
-        function sendEmail() {
-            const email = "pradyutvam@protonmail.com";
-            const subject = "Hello!";
-            const body = "This is a test email.";
-
-            // Construct the mailto URL
-            // Open the mailto link
-            window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        }
-    </script>
+    <script src="Js/mainpage.js"></script>
 </head>
 <body>
 <header class="header">
@@ -59,7 +49,7 @@
         </div>
         <p>Visualize All Tasks</p>
     </div>
-    <div class="card" onclick="navigateTo('html/download.html')">
+    <div class="card" onclick=downloadCSV()>
         <div class="icon-container">
             <i class="fa-solid fa-download"></i>
         </div>
